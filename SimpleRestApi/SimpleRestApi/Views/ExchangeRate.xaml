@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SimpleRestApi.Views.ExchangeRate"
+             Title="Exchange Rates">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="4,4,4,4" BackgroundColor="LightGray" Grid.Row="0">
+                <Frame Padding="4,4,4,4" >
+                    <StackLayout >
+                        <ListView ItemsSource="{Binding Items}"
+                            CachingStrategy="RecycleElement"
+                              RowHeight="60">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid Padding="7">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="20"></RowDefinition>
+                                                <RowDefinition Height="20"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="10"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="10"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+                                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Base}"/>
+                                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Rate}" FontSize="Medium" FontAttributes="Bold"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout >
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
